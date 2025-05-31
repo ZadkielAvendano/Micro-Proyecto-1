@@ -3,9 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <title>Micro Proyecto 1</title>
 </head>
 <body>
-    
+    <div class = "container">
+        <div class="introduction">
+            <h1> &lt;/&gt; Quiz de Programación</h1>
+            <p> 🧠💪🏻 Pon a prueba tus conocimientos</p>
+        </div>
+        <div class="user_register">
+            <form>
+                <label for ="nombre">Ingresa tu nombre: </label><br> <!--Registro de nombre-->
+                <input type="text" id="nombre" name="nombre" placeholder="Ej: Carlos Pérez"><br><br>
+                <!--Botton para comenzar Quiz-->
+                <input type="submit" value="Iniciar Quiz">
+            </form>
+        </div> 
+        <div class="ranking_table">
+            <h2> 🏆 Ranking de Puntuaciones</h2>
+            <table>
+            <!--Encabezado de la tabla-->
+                <thead>
+                    <tr> 
+                        <th>Nombre</th>
+                        <th>Puntaje</th>
+                        <th>%Acierto</th>
+                        <th>Fecha</th>
+                    </tr>
+                </thead>
+            <!-- Cuerpo de la tabla -->
+                <tbody>  
+                    <tr>
+                        <td>Dato 1</td>
+                        <td>Dato 2</td>
+                        <td>Dato 3</td>
+                        <td>Dato 4</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </body>
 </html>
