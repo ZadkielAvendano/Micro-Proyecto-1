@@ -7,18 +7,16 @@
     <title>Micro Proyecto 1</title>
 </head>
 <body>
-    <div class = "container">
+    <div id="menu_inicio" class = "container">
         <div class="introduction">
             <h1> &lt;/&gt; Quiz de Programación</h1>
             <p> 🧠💪🏻 Pon a prueba tus conocimientos</p>
         </div>
         <div class="user_register">
-            <form>
-                <label for ="nombre">Ingresa tu nombre: </label><br> <!--Registro de nombre-->
-                <input type="text" id="nombre" name="nombre" placeholder="Ej: Carlos Pérez"><br><br>
-                <!--Botton para comenzar Quiz-->
-                <input type="submit" value="Iniciar Quiz">
-            </form>
+            <p>Ingresa tu nombre:</p>
+            <input type="text" id="nombre" name="nombre" placeholder="Ej: Carlos Pérez"><br><br>
+            <!--Botton para comenzar Quiz-->
+            <button id="iniciar_button">Iniciar Quiz</button>
         </div> 
         <div class="ranking_table">
             <h2> 🏆 Ranking de Puntuaciones</h2>
@@ -44,5 +42,25 @@
             </table>
         </div>
     </div>
+
+    <!-- Vista del QUIZ-->
+    <div id="menu_quiz" class="container">
+        <div class="header_quiz">
+            <div class="header_quiz_h1">
+                <h1 id="numero_pregunta">Pregunta #/10</h1>
+                <h1 id="temporizador">Tiempo</h1>
+            </div>
+            <h2 id="pregunta">Pregunta</h2>
+            <div>
+                <button class="respuesta_1_button" onclick="responder(this)">Respuesta 1</button>
+                <button class="respuesta_2_button" onclick="responder(this)">Respuesta 2</button>
+                <button class="respuesta_3_button" onclick="responder(this)">Respuesta 3</button>
+                <button class="respuesta_4_button" onclick="responder(this)">Respuesta 4</button>
+            </div>
+            <button id="salir_button">Salir del Quiz</button>
+        </div>
+    </div>
+
+    <script src="./index.js"></script>
 </body>
 </html>
