@@ -1,4 +1,4 @@
-const questions = [
+export const questions = [
   {
     id: 1,
     question: "¿Qué lenguaje se ejecuta directamente en el navegador?",
@@ -351,7 +351,7 @@ const questions = [
   }
 ];
 
-function getRandomQuestions(questions,totalQuestions){
+export function getRandomQuestions(questions,totalQuestions){
 
     if(questions.length == 0){
         console.error("El banco de preguntas está vacío");
@@ -371,5 +371,5 @@ function getRandomQuestions(questions,totalQuestions){
     return selectedQuestions;
 }
 
-const preguntasDelQuiz = getRandomQuestions(questions, 10); // 12 preguntas aleatorias
-console.log(preguntasDelQuiz); 
+// const preguntasDelQuiz = getRandomQuestions(questions, 10);
+// console.log(preguntasDelQuiz); 

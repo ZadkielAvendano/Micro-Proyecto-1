@@ -51,16 +51,30 @@
                 <h1 id="temporizador">Tiempo</h1>
             </div>
             <h2 id="pregunta">Pregunta</h2>
-            <div>
-                <button class="respuesta_1_button" onclick="responder(this)">Respuesta 1</button>
-                <button class="respuesta_2_button" onclick="responder(this)">Respuesta 2</button>
-                <button class="respuesta_3_button" onclick="responder(this)">Respuesta 3</button>
-                <button class="respuesta_4_button" onclick="responder(this)">Respuesta 4</button>
+            <div id="botones_respuesta">
+                <button id="respuesta_1_button">Respuesta 1</button>
+                <button id="respuesta_2_button">Respuesta 2</button>
+                <button id="respuesta_3_button">Respuesta 3</button>
+                <button id="respuesta_4_button">Respuesta 4</button>
             </div>
             <button id="salir_button">Salir del Quiz</button>
         </div>
     </div>
 
-    <script src="./index.js"></script>
+    <!-- Vista del resultados-->
+    <div id="menu_resultados" class="container">
+        <div class="header_resultados">
+            <div class="header_resultados_h1">
+                <h1>¡Quiz Finalizado!</h1>
+            </div>
+            <h2 id="puntuacion">Puntuacion:</h2>
+            <div>
+                <p id="resultados">Resultados</p>
+            </div>
+            <button id="continuar_button">Continuar</button>
+        </div>
+    </div>
+
+    <script type="module" src="./index.js"></script>
 </body>
 </html>

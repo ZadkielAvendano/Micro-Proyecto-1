@@ -10,6 +10,10 @@
   display: none;
 }
 
+#menu_resultados{
+  display: none;
+}
+
 /* Se coloca el fondo de la página de color azul oscuro*/
 body {
   background-color: #0f172a;
@@ -192,4 +196,43 @@ body {
 
 #salir_button:hover{
   background-color: #2563eb;
+}
+
+.header_resultados{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.header_resultados_h1{
+  color: #61a5fb;
+  display: flex;
+  justify-content: space-between;
+}
+
+.header_resultados button {
+  /* Color y forma */
+  background-color: #3b82f6; /* Azul brillante como en la imagen */
+  border: none;
+  border-radius: 6px; /* Esquinas redondeadas */
+  
+  /* Texto */
+  color: white;
+  font-weight: 500;
+  font-size: 1em;
+  text-align: justify;
+  
+  /* Tamaño y espaciado */
+  padding: 10px 24px; /* 10px arriba/abajo, 24px izquierda/derecha */
+  width: 100%; 
+  display: block; /* Para centrarlo fácilmente */
+  margin: 16px auto 0; /* Margen superior y centrado horizontal */
+  
+  /* Efectos */
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.header_resultados button:hover{
+  background-color: #2563eb; /* Azul más oscuro al pasar el mouse */
 }
