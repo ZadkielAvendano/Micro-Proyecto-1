@@ -47,8 +47,6 @@ document.getElementById("salir_button").addEventListener("click", function(event
     document.getElementById("nombre").value = "";
 
     // Cambia la vista de la web
-    menu_inicio.style.display = "block";
-    menu_quiz.style.display = "none";
     salir_quiz();
 });
 
@@ -179,6 +177,8 @@ function actualizarTemporizador(){
     }else{
         tiempoTotal--;
     }
+}
+
 function salir_quiz(){
     // Resetea el input del menu de inicio
     document.getElementById("nombre").value = "";
@@ -187,4 +187,4 @@ function salir_quiz(){
     menu_inicio.style.display = "block";
     menu_quiz.style.display = "none";
     menu_resultados.style.display = "none";
-}}
+}
