@@ -236,3 +236,49 @@ body {
 .header_resultados button:hover{
   background-color: #2563eb; /* Azul más oscuro al pasar el mouse */
 }
+
+.correct-answer {
+  background-color: #4CAF50 !important; /* Verde */
+  color: white !important;
+}
+
+.incorrect-answer {
+  background-color: #f44336 !important; /* Rojo */
+  color: white !important;
+}
+
+#botones_respuesta button.correct-answer,
+#botones_respuesta button.incorrect-answer {
+    pointer-events: none; /* Desactiva interacciones (hover/clicks) */
+}
+
+#botones_respuesta button.correct-answer {
+    background-color: #4CAF50 !important;
+    color: white !important;
+}
+
+#botones_respuesta button.incorrect-answer {
+    background-color: #f44336 !important;
+    color: white !important;
+}
+
+/* Estilos para la pantalla de resultados */
+#puntuacion {
+    font-size: 1.5em;
+    color: #61a5fb;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#resultados {
+    text-align: center;
+    line-height: 1.6;
+}
+
+#resultados strong {
+    color: #61a5fb;
+}
+
+#continuar_button {
+    margin-top: 30px;
+}

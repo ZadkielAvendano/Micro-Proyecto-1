@@ -106,29 +106,60 @@ document.querySelectorAll("#botones_respuesta button").forEach(button => {
 // Funcion que se llama con los botones de las respuestas
 function responder(button){
     if (contador_pregunta <= preguntas_maximas){
-        // Actualiza los datos
-        contador_pregunta += 1;
-        respuestas.push(button.innerText);
+        // Obtener la respuesta correcta
+        const respuestaCorrecta = preguntas[contador_pregunta - 1].answer;
+        const respuestaSeleccionada = button.innerText;
         
-        if (contador_pregunta > preguntas_maximas) {
-            // Finaliza el Quiz
-            let puntuacion = 0
-            for (let index = 0; index < preguntas_maximas; index++) {
-                if (preguntas[index].answer == respuestas[index]) {
-                    console.log("verdadero");
-                    puntuacion += 1;
-                }
-            }
-            // Cambia la vista de la web ( RESULTADOS )
-            menu_inicio.style.display = "none";
-            menu_quiz.style.display = "none";
-            menu_resultados.style.display = "block";
-            puntuacion_text.innerText = "Puntuacion: " + puntuacion;
-            resultados_text.innerText = preguntas;
+        // Verificar si la respuesta es correcta
+        const esCorrecta = respuestaSeleccionada === respuestaCorrecta;
+        
+        // Aplicar clase según si es correcta o no
+        if (esCorrecta) {
+            button.classList.add('correct-answer');
         } else {
-            // Actualiza la interfaz
-            realizar_pregunta()
+            button.classList.add('incorrect-answer');
+            
+            // También resaltar la respuesta correcta en verde
+            const botones = document.querySelectorAll("#botones_respuesta button");
+            botones.forEach(btn => {
+                if (btn.innerText === respuestaCorrecta) {
+                    btn.classList.add('correct-answer');
+                }
+            });
         }
+        
+        // Esperar un momento antes de continuar para que el usuario vea los colores
+        setTimeout(() => {
+            // Actualizar los datos
+            contador_pregunta += 1;
+            respuestas.push(respuestaSeleccionada);
+            
+            if (contador_pregunta > preguntas_maximas) {
+                // Finaliza el Quiz
+                let puntuacion = 0
+                for (let index = 0; index < preguntas_maximas; index++) {
+                    if (preguntas[index].answer == respuestas[index]) {
+                        puntuacion += 1;
+                    }
+                }
+                // Cambia la vista de la web ( RESULTADOS )
+                menu_inicio.style.display = "none";
+                menu_quiz.style.display = "none";
+                menu_resultados.style.display = "block";
+                puntuacion_text.innerText = "Puntuación: " + puntuacion;
+                const porcentaje = Math.round((puntuacion/preguntas_maximas)*100);
+                resultados_text.innerText = `Respondiste ${puntuacion} de ${preguntas_maximas} correctamente.
+                Porcentaje de acierto: ${porcentaje}%`;
+            } else {
+                // Quitar clases de colores antes de la siguiente pregunta
+                const botones = document.querySelectorAll("#botones_respuesta button");
+                botones.forEach(btn => {
+                    btn.classList.remove('correct-answer', 'incorrect-answer');
+                });
+                // Actualiza la interfaz
+                realizar_pregunta();
+            }
+        }, 1000); // 1 segundo de delay
     }
 }
 
