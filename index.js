@@ -4,6 +4,8 @@ const preguntas_maximas = 10;
 let contador_pregunta = 0;
 let preguntas = []
 let respuestas = []
+let tiempoTotal = 300 //5 minutos (300 segundos)
+let temporizador; //Para guardar el tiempo actual.
 
 // -- Referencias al HTML --
 // Vistas
@@ -22,7 +24,7 @@ let respuesta_2_button = document.getElementById("respuesta_2_button");
 let respuesta_3_button = document.getElementById("respuesta_3_button");
 let respuesta_4_button = document.getElementById("respuesta_4_button");
 
-// Detecta el click del boton para inicar el quiz
+// Detecta el click del boton para iniciar el quiz
 document.getElementById("iniciar_button").addEventListener("click", function(event){
     // Verifica si el usuario ingreso su nombre
     let nombre = document.getElementById("nombre").value;
@@ -36,6 +38,17 @@ document.getElementById("iniciar_button").addEventListener("click", function(eve
 
 // Detecta el click del boton para salir del quiz
 document.getElementById("salir_button").addEventListener("click", function(event){
+    
+    if(temporizador){
+        clearInterval(temporizador);
+    }
+
+    // Resetea el input del menu de inicio
+    document.getElementById("nombre").value = "";
+
+    // Cambia la vista de la web
+    menu_inicio.style.display = "block";
+    menu_quiz.style.display = "none";
     salir_quiz();
 });
 
@@ -52,6 +65,13 @@ function iniciar_quiz(nombre){
     // Reinicia el contador de preguntas
     contador_pregunta = 1;
     respuestas = []
+    tiempoTotal = 300;
+    numero_pregunta.innerText = "Pregunta " + contador_pregunta + "/10";
+
+    temporizador = setInterval(actualizarTemporizador,1000);
+    actualizarTemporizador();
+
+    // Cambia la vista de la web
     numero_pregunta_text.innerText = "Pregunta " + contador_pregunta + "/10";
     realizar_pregunta()
 
@@ -112,6 +132,22 @@ function responder(button){
     }
 }
 
+function actualizarTemporizador(){
+    const minutos = Math.floor(tiempoTotal / 60);
+    const segundos = tiempoTotal % 60;
+
+    const tiempoFormateado = `${minutos.toString().padStart(2, '0')}:${segundos.toString().padStart(2, '0')}`;
+    document.getElementById("temporizador").textContent = tiempoFormateado;
+
+    if(tiempoTotal == 0){
+        clearInterval(temporizador);
+        alert("¡Tiempo agotado!");
+    }else if(tiempoTotal <= 30){
+        document.getElementById("temporizador").style.color = "#f54230";
+        tiempoTotal--;
+    }else{
+        tiempoTotal--;
+    }
 function salir_quiz(){
     // Resetea el input del menu de inicio
     document.getElementById("nombre").value = "";
@@ -120,4 +156,4 @@ function salir_quiz(){
     menu_inicio.style.display = "block";
     menu_quiz.style.display = "none";
     menu_resultados.style.display = "none";
-}
+}}
