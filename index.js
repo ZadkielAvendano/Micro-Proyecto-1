@@ -280,8 +280,44 @@ function load_data(){
     console.log(`Puntuaciones cargadas: ${JSON.stringify(tabla_puntuaciones, null, 2)}`);
 
     // Actualiza la tabla de puntuaciones con las 5 mas altas
+    const tbody = document.querySelector(".ranking_table tbody");
+    if(tbody){
+        tbody.innerHTML = "";
+        // Ordenar puntuaciones de mayor a menor
+        const puntuacionesOrdenadas = [...tabla_puntuaciones].sort((a,b) => b.puntaje - a.puntaje);
+    
+        // Mostrar solo las 5 mejores
+        const mejoresPuntuaciones = puntuacionesOrdenadas.slice(0, 5);
+        
+        mejoresPuntuaciones.forEach(puntuacion => {
+            const tr = document.createElement("tr");
 
-    // CODIGO...
+            // Nombre
+            const tdNombre = document.createElement('td');
+            tdNombre.textContent = puntuacion.nombre;
+            tr.appendChild(tdNombre);
+            
+            // Puntaje
+            const tdPuntaje = document.createElement("td");
+            tdPuntaje.textContent = puntuacion.puntaje;
+            tr.appendChild(tdPuntaje);
+            
+            // Porcentaje
+            const tdPorcentaje = document.createElement("td");
+            const porcentaje = Math.round((puntuacion.puntaje/preguntas_maximas)*100);
+            tdPorcentaje.textContent = `${porcentaje}%`;
+            tr.appendChild(tdPorcentaje);
+
+            // Fecha
+            const tdFecha = document.createElement("td");
+            tdFecha.textContent = puntuacion.fecha;
+            tr.appendChild(tdFecha);
+
+            tbody.appendChild(tr);
+        });
+    }else{
+        console.error("No se encontró el tbody de la tabla");
+    }
 }
 
 function save_data(){
