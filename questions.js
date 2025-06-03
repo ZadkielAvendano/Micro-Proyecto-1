@@ -23,9 +23,9 @@ export const questions = [
   {
     id: 4,
     question: "¿Qué etiqueta HTML crea un enlace?",
-    options: ["<link>", "<a>", "<href>", "<url>"],
-    answer: "<a>",
-    explanation: "La etiqueta <a> con el atributo 'href' define hipervínculos."
+    options: ["< link >", "< a >", "< href >", "< url >"],
+    answer: "< a >",
+    explanation: "La etiqueta < a > con el atributo 'href' define hipervínculos."
   },
   {
     id: 5,
@@ -149,7 +149,7 @@ export const questions = [
   {
     id: 22,
     question: "¿Qué símbolo se usa para acceder a propiedades de un objeto en JavaScript?",
-    options: [".", ":", "->", "#"],
+    options: [".", ":", "- >", "#"],
     answer: ".",
     explanation: "El punto (.) accede a propiedades (ej: objeto.propiedad)."
   },
@@ -170,9 +170,9 @@ export const questions = [
   {
     id: 25,
     question: "¿Qué etiqueta HTML se usa para contenido independiente (como un post)?",
-    options: ["<div>", "<span>", "<article>", "<section>"],
-    answer: "<article>",
-    explanation: "<article> representa contenido autocontenido."
+    options: ["< div >", "< span >", "< article >", "< section >"],
+    answer: "< article >",
+    explanation: "< article > representa contenido autocontenido."
   },
   {
     id: 26,
@@ -246,10 +246,10 @@ export const questions = [
   },
   {
     id: 36,
-    question: "¿Qué selector CSS apunta a todos los elementos <p> dentro de un <div>?",
-    options: ["div p", "div > p", "div + p", "div ~ p"],
+    question: "¿Qué selector CSS apunta a todos los elementos < p > dentro de un < div >?",
+    options: ["div p", "div  > p", "div + p", "div ~ p"],
     answer: "div p",
-    explanation: "div p selecciona todos los <p> descendientes de <div>."
+    explanation: "div p selecciona todos los < p > descendientes de < div >."
   },
   {
     id: 37,
@@ -261,9 +261,9 @@ export const questions = [
   {
     id: 38,
     question: "¿Qué etiqueta HTML muestra texto preformateado (conservando espacios)?",
-    options: ["<code>", "<pre>", "<text>", "<format>"],
-    answer: "<pre>",
-    explanation: "<pre> muestra texto con formato y espacios literal."
+    options: ["< code >", "< pre >", "< text >", "< format >"],
+    answer: "< pre >",
+    explanation: "< pre > muestra texto con formato y espacios literal."
   },
   {
     id: 39,
@@ -296,9 +296,9 @@ export const questions = [
   {
     id: 43,
     question: "¿Qué etiqueta HTML define metadatos como el título de la página?",
-    options: ["<meta>", "<head>", "<title>", "<header>"],
-    answer: "<head>",
-    explanation: "<head> contiene metadatos como <title> y <meta>."
+    options: ["< meta >", "< head >", "< title >", "< header >"],
+    answer: "< head >",
+    explanation: "< head > contiene metadatos como < title > y < meta >."
   },
   {
     id: 44,
@@ -338,9 +338,9 @@ export const questions = [
   {
     id: 49,
     question: "¿Qué etiqueta HTML crea una lista desordenada?",
-    options: ["<ol>", "<ul>", "<li>", "<list>"],
-    answer: "<ul>",
-    explanation: "<ul> crea listas no numeradas (con <li> para ítems)."
+    options: ["< ol >", "< ul >", "< li >", "< list >"],
+    answer: "< ul >",
+    explanation: "< ul > crea listas no numeradas (con < li > para ítems)."
   },
   {
     id: 50,
@@ -363,7 +363,7 @@ export function getRandomQuestions(questions,totalQuestions){
 
     const questionsToSelect = Math.min(totalQuestions, copyQuestions.length);
 
-    for(let i=0; i<questionsToSelect;i++){
+    for(let i=0; i< questionsToSelect;i++){
         const randomIndex = Math.floor(Math.random() * copyQuestions.length);
         selectedQuestions.push(copyQuestions[randomIndex]);
         copyQuestions.splice(randomIndex, 1);

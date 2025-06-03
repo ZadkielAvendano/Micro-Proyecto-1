@@ -29,7 +29,7 @@ body {
 .container {
   background-color: #1e293b;
   width: 90%;
-  max-width: 600px; /* Más estrecho como en tu imagen */
+  max-width: 600px;
   padding: 25px;
   border-radius: 8px;
   margin: auto;
@@ -38,7 +38,7 @@ body {
 .introduction h1 {
   text-align: center;
   color: #61a5fb;
-  margin-bottom: 20px; /*Espacio debajo del texto h1*/
+  margin-bottom: 20px;
 }
 
 .introduction p {
@@ -49,30 +49,30 @@ body {
 
 .user_register label {
   margin-bottom: 50px;
-  color: #b5bdc9; /* Gris claro como en tu imagen */
-  font-size: 0.95em; /* Tamaño ligeramente menor */
+  color: #b5bdc9;
+  font-size: 0.95em;
 }
 
 .user_register input[type="text"] {
-  width: 100%; /* Ocupa todo el ancho disponible */
-  background-color: #465469; /* Fondo oscuro semitransparente */
-  border: 2px solid #607086; /* Borde gris-azulado */
-  border-radius: 4px; /* Esquinas redondeadas */
-  padding: 10px 12px; /* Espacio interno (arriba/abajo - izquierda/derecha) */
-  color: #cfcfcf; /* Color del texto ingresado */
-  font-size: 1em; /* Tamaño de fuente estándar */
+  width: 100%;
+  background-color: #465469;
+  border: 2px solid #607086;
+  border-radius: 4px;
+  padding: 10px 12px;
+  color: #cfcfcf;
+  font-size: 1em;
 }
 
 .user_register input::placeholder {
-  color: #92969e; /* Gris medio */
-  opacity: 1; /* Asegura visibilidad en Firefox */
+  color: #92969e;
+  opacity: 1;
 }
 
 .user_register button {
   /* Color y forma */
-  background-color: #3b82f6; /* Azul brillante como en la imagen */
+  background-color: #3b82f6;
   border: none;
-  border-radius: 6px; /* Esquinas redondeadas */
+  border-radius: 6px;
 
   /* Texto */
   color: white;
@@ -80,10 +80,10 @@ body {
   font-size: 1em;
 
   /* Tamaño y espaciado */
-  padding: 10px 24px; /* 10px arriba/abajo, 24px izquierda/derecha */
+  padding: 10px 24px;
   width: 100%;
-  display: block; /* Para centrarlo fácilmente */
-  margin: 16px auto 0; /* Margen superior y centrado horizontal */
+  display: block;
+  margin: 16px auto 0;
 
   /* Efectos */
   cursor: pointer;
@@ -91,7 +91,7 @@ body {
 }
 
 .user_register button:hover {
-  background-color: #2563eb; /* Azul más oscuro al pasar el mouse */
+  background-color: #2563eb;
 }
 
 .ranking_table h2 {
@@ -112,23 +112,23 @@ body {
 }
 
 .ranking_table th {
-  background-color: #334155; /* Fondo azul-gris oscuro */
-  color: #e2e8f0; /* Texto gris claro */
+  background-color: #334155;
+  color: #e2e8f0;
   padding: 12px 15px;
   text-align: left;
   font-weight: 500;
-  border-bottom: 2px solid #475569; /* Borde inferior más marcado */
+  border-bottom: 2px solid #475569;
 }
 
 .ranking_table td {
   padding: 12px 15px;
-  color: #cbd5e1; /* Texto gris medio */
-  border-bottom: 1px solid #475569; /* Bordes sutiles entre filas */
-  background-color: rgba(30, 41, 59, 0.7); /* Fondo semi-transparente */
+  color: #cbd5e1;
+  border-bottom: 1px solid #475569;
+  background-color: rgba(30, 41, 59, 0.7);
 }
 
 .ranking_table tr:hover td {
-  background-color: #334155; /* Azul-gris más oscuro al pasar el mouse */
+  background-color: #334155;
 }
 
 /* Esquina superior izquierda redondeada */
@@ -165,9 +165,9 @@ body {
 
 .header_quiz button {
   /* Color y forma */
-  background-color: #607086; /* Azul brillante como en la imagen */
+  background-color: #607086;
   border: none;
-  border-radius: 6px; /* Esquinas redondeadas */
+  border-radius: 6px;
 
   /* Texto */
   color: white;
@@ -176,10 +176,10 @@ body {
   text-align: justify;
 
   /* Tamaño y espaciado */
-  padding: 10px 24px; /* 10px arriba/abajo, 24px izquierda/derecha */
+  padding: 10px 24px;
   width: 100%;
-  display: block; /* Para centrarlo fácilmente */
-  margin: 16px auto 0; /* Margen superior y centrado horizontal */
+  display: block;
+  margin: 16px auto 0;
 
   /* Efectos */
   cursor: pointer;
@@ -187,11 +187,12 @@ body {
 }
 
 .header_quiz button:hover {
-  background-color: #61a5fb; /* Azul más oscuro al pasar el mouse */
+  background-color: #61a5fb;
 }
 
 #salir_button {
   background-color: #3b82f6;
+  text-align: center;
 }
 
 #salir_button:hover {
@@ -212,9 +213,9 @@ body {
 
 .header_resultados button {
   /* Color y forma */
-  background-color: #3b82f6; /* Azul brillante como en la imagen */
+  background-color: #3b82f6;
   border: none;
-  border-radius: 6px; /* Esquinas redondeadas */
+  border-radius: 6px;
 
   /* Texto */
   color: white;
@@ -223,10 +224,10 @@ body {
   text-align: justify;
 
   /* Tamaño y espaciado */
-  padding: 10px 24px; /* 10px arriba/abajo, 24px izquierda/derecha */
+  padding: 10px 24px;
   width: 100%;
-  display: block; /* Para centrarlo fácilmente */
-  margin: 16px auto 0; /* Margen superior y centrado horizontal */
+  display: block;
+  margin: 16px auto 0;
 
   /* Efectos */
   cursor: pointer;
@@ -234,16 +235,16 @@ body {
 }
 
 .header_resultados button:hover {
-  background-color: #2563eb; /* Azul más oscuro al pasar el mouse */
+  background-color: #2563eb;
 }
 
 .correct-answer {
-  background-color: #4caf50 !important; /* Verde */
+  background-color: #4caf50 !important;
   color: white !important;
 }
 
 .incorrect-answer {
-  background-color: #f44336 !important; /* Rojo */
+  background-color: #f44336 !important;
   color: white !important;
 }
 
@@ -287,4 +288,49 @@ body {
 
 #continuar_button {
   margin-top: 30px;
+  text-align: center;
+}
+
+/* Estilos de resultados */
+#detalle_resultados_container {
+    margin-top: 20px;
+    text-align: left;
+}
+
+.resultado-pregunta {
+    background-color: #2a3a4a;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    border-left: 5px solid #607086;
+}
+
+.resultado-pregunta p {
+    margin-bottom: 5px;
+    color: #b5bdc9;
+}
+
+.resultado-pregunta .pregunta-texto {
+    font-weight: bold;
+    color: #61a5fb;
+}
+
+.respuesta-usuario {
+    padding: 3px 6px;
+    border-radius: 3px;
+    color: white;
+}
+
+.respuesta-usuario.correcta {
+    background-color: #4caf50;
+    border-left: 3px solid #388e3c;
+}
+
+.respuesta-usuario.incorrecta {
+    background-color: #f44336;
+    border-left: 3px solid #d32f2f;
+}
+
+.respuesta-correcta-texto {
+    color: #a0aec0;
 }
