@@ -1,4 +1,9 @@
 # 🧠💪🏻 Quiz de Programación
+## Enlace a la Web (Github Pages)
+https://zadkielavendano.github.io/Micro-Proyecto-1/
+## Integrantes
+* Zadkiel Avendaño
+* Ricardo Machado
 
 ---
 
@@ -29,6 +34,12 @@ El proyecto se organiza en los siguientes archivos:
 ---
 
 ## Cómo Ejecutar el Proyecto
+Puedes ejecutar el proyecto de dos maneras distintas:
+
+### Ver en la web:
+https://zadkielavendano.github.io/Micro-Proyecto-1/
+
+### Ejecutar localmente:
 
 Para ejecutar este proyecto, solo necesitas un navegador web moderno:
 
