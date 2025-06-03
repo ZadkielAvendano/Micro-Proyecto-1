@@ -22,6 +22,7 @@ const puntuacion_text = document.getElementById("puntuacion");
 const resultados_text = document.getElementById("resultados");
 const nombre_text = document.getElementById("nombre");
 const temporizador_text = document.getElementById("temporizador");
+const pregunta_text = document.getElementById("pregunta");
 
 // Botones
 const iniciar_button = document.getElementById("iniciar_button");
@@ -150,7 +151,7 @@ function realizar_pregunta(){
 
     // Actualiza la pregunta en la interfaz
     numero_pregunta_text.innerText = "Pregunta " + contador_pregunta + "/" + preguntas_maximas;
-    document.getElementById("pregunta").innerText = pregunta
+    pregunta_text.innerText = pregunta
     
     // Actualiza los botones con las opciones
     respuesta_1_button.innerText = opciones[0]
