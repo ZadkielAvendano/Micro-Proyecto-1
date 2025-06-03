@@ -3,9 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="imagenes/7128236.png" type="icon/png">
     <title>Micro Proyecto 1</title>
 </head>
 <body>
-    
+    <div id="menu_inicio" class = "container">
+        <div class="introduction">
+            <h1> &lt;/&gt; Quiz de Programación</h1>
+            <p> 🧠💪🏻 Pon a prueba tus conocimientos.</p>
+        </div>
+        <div class="user_register">
+            <p>Ingresa tu nombre:</p>
+            <input type="text" id="nombre" name="nombre" placeholder="Ej: Carlos Pérez"><br><br>
+            <!--Botton para comenzar Quiz-->
+            <button id="iniciar_button">Iniciar Quiz</button>
+        </div> 
+        <div class="ranking_table">
+            <h2> 🏆 Ranking de Puntuaciones</h2>
+            <table>
+            <!--Encabezado de la tabla-->
+                <thead>
+                    <tr> 
+                        <th>Nombre</th>
+                        <th>Puntaje</th>
+                        <th>%Acierto</th>
+                        <th>Fecha</th>
+                    </tr>
+                </thead>
+            <!-- Cuerpo de la tabla -->
+                <tbody>  
+                    <tr>
+                        <td>Dato 1</td>
+                        <td>Dato 2</td>
+                        <td>Dato 3</td>
+                        <td>Dato 4</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Vista del QUIZ-->
+    <div id="menu_quiz" class="container">
+        <div class="header_quiz">
+            <div class="header_quiz_h1">
+                <h1 id="numero_pregunta">Pregunta #/10</h1>
+                <h1 id="temporizador">05:00</h1>
+            </div>
+            <h2 id="pregunta">Pregunta</h2>
+            <div id="botones_respuesta">
+                <button id="respuesta_1_button">Respuesta 1</button>
+                <button id="respuesta_2_button">Respuesta 2</button>
+                <button id="respuesta_3_button">Respuesta 3</button>
+                <button id="respuesta_4_button">Respuesta 4</button>
+            </div>
+            <button id="salir_button">Salir del Quiz</button>
+        </div>
+    </div>
+
+    <!-- Vista del resultados-->
+    <div id="menu_resultados" class="container">
+        <div class="header_resultados">
+            <div class="header_resultados_h1">
+                <h1>¡Quiz Finalizado!</h1>
+            </div>
+            <h2 id="puntuacion">Puntuacion:</h2>
+            <p id="resultados">Resultados</p>
+            <div id="detalle_resultados_container"></div>
+            <button id="continuar_button">Continuar</button>
+        </div>
+    </div>
+
+    <script type="module" src="./index.js"></script>
 </body>
 </html>
