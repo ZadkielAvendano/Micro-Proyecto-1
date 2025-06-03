@@ -3,14 +3,14 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente moderna */
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /* Fuente moderna */
 }
 
-#menu_quiz{
+#menu_quiz {
   display: none;
 }
 
-#menu_resultados{
+#menu_resultados {
   display: none;
 }
 
@@ -37,7 +37,7 @@ body {
 
 .introduction h1 {
   text-align: center;
-  color:#61a5fb;
+  color: #61a5fb;
   margin-bottom: 20px; /*Espacio debajo del texto h1*/
 }
 
@@ -73,30 +73,30 @@ body {
   background-color: #3b82f6; /* Azul brillante como en la imagen */
   border: none;
   border-radius: 6px; /* Esquinas redondeadas */
-  
+
   /* Texto */
   color: white;
   font-weight: 500;
   font-size: 1em;
-  
+
   /* Tamaño y espaciado */
   padding: 10px 24px; /* 10px arriba/abajo, 24px izquierda/derecha */
-  width: 100%; 
+  width: 100%;
   display: block; /* Para centrarlo fácilmente */
   margin: 16px auto 0; /* Margen superior y centrado horizontal */
-  
+
   /* Efectos */
   cursor: pointer;
   transition: background-color 0.2s ease;
 }
 
-.user_register button:hover{
+.user_register button:hover {
   background-color: #2563eb; /* Azul más oscuro al pasar el mouse */
 }
 
 .ranking_table h2 {
   text-align: center;
-  color:#61a5fb;
+  color: #61a5fb;
   margin: 20px;
 }
 
@@ -151,13 +151,13 @@ body {
   border-bottom-right-radius: 6px;
 }
 
-.header_quiz{
+.header_quiz {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-.header_quiz_h1{
+.header_quiz_h1 {
   color: #61a5fb;
   display: flex;
   justify-content: space-between;
@@ -168,43 +168,43 @@ body {
   background-color: #607086; /* Azul brillante como en la imagen */
   border: none;
   border-radius: 6px; /* Esquinas redondeadas */
-  
+
   /* Texto */
   color: white;
   font-weight: 500;
   font-size: 1em;
   text-align: justify;
-  
+
   /* Tamaño y espaciado */
   padding: 10px 24px; /* 10px arriba/abajo, 24px izquierda/derecha */
-  width: 100%; 
+  width: 100%;
   display: block; /* Para centrarlo fácilmente */
   margin: 16px auto 0; /* Margen superior y centrado horizontal */
-  
+
   /* Efectos */
   cursor: pointer;
   transition: background-color 0.2s ease;
 }
 
-.header_quiz button:hover{
+.header_quiz button:hover {
   background-color: #61a5fb; /* Azul más oscuro al pasar el mouse */
 }
 
-#salir_button{
+#salir_button {
   background-color: #3b82f6;
 }
 
-#salir_button:hover{
+#salir_button:hover {
   background-color: #2563eb;
 }
 
-.header_resultados{
+.header_resultados {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-.header_resultados_h1{
+.header_resultados_h1 {
   color: #61a5fb;
   display: flex;
   justify-content: space-between;
@@ -215,30 +215,30 @@ body {
   background-color: #3b82f6; /* Azul brillante como en la imagen */
   border: none;
   border-radius: 6px; /* Esquinas redondeadas */
-  
+
   /* Texto */
   color: white;
   font-weight: 500;
   font-size: 1em;
   text-align: justify;
-  
+
   /* Tamaño y espaciado */
   padding: 10px 24px; /* 10px arriba/abajo, 24px izquierda/derecha */
-  width: 100%; 
+  width: 100%;
   display: block; /* Para centrarlo fácilmente */
   margin: 16px auto 0; /* Margen superior y centrado horizontal */
-  
+
   /* Efectos */
   cursor: pointer;
   transition: background-color 0.2s ease;
 }
 
-.header_resultados button:hover{
+.header_resultados button:hover {
   background-color: #2563eb; /* Azul más oscuro al pasar el mouse */
 }
 
 .correct-answer {
-  background-color: #4CAF50 !important; /* Verde */
+  background-color: #4caf50 !important; /* Verde */
   color: white !important;
 }
 
@@ -248,37 +248,43 @@ body {
 }
 
 #botones_respuesta button.correct-answer,
-#botones_respuesta button.incorrect-answer {
-    pointer-events: none; /* Desactiva interacciones (hover/clicks) */
+#botones_respuesta button.incorrect-answer,
+#botones_respuesta button.remaining-answer {
+  pointer-events: none; /* Desactiva interacciones (hover/clicks) */
 }
 
 #botones_respuesta button.correct-answer {
-    background-color: #4CAF50 !important;
-    color: white !important;
+  background-color: #4caf50 !important;
+  color: white !important;
 }
 
 #botones_respuesta button.incorrect-answer {
-    background-color: #f44336 !important;
-    color: white !important;
+  background-color: #f44336 !important;
+  color: white !important;
+}
+
+#botones_respuesta button.remaining-answer {
+  background-color: rgba(0, 0, 0, 0.25);
+  color: white;
 }
 
 /* Estilos para la pantalla de resultados */
 #puntuacion {
-    font-size: 1.5em;
-    color: #61a5fb;
-    text-align: center;
-    margin-bottom: 20px;
+  font-size: 1.5em;
+  color: #61a5fb;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 #resultados {
-    text-align: center;
-    line-height: 1.6;
+  text-align: center;
+  line-height: 1.6;
 }
 
 #resultados strong {
-    color: #61a5fb;
+  color: #61a5fb;
 }
 
 #continuar_button {
-    margin-top: 30px;
+  margin-top: 30px;
 }

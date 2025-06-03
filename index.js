@@ -94,6 +94,12 @@ function realizar_pregunta(){
     respuesta_2_button.innerText = opciones[1]
     respuesta_3_button.innerText = opciones[2]
     respuesta_4_button.innerText = opciones[3]
+
+    // Quitar clases de colores antes de la siguiente pregunta
+    const botones = document.querySelectorAll("#botones_respuesta button");
+    botones.forEach(btn => {
+        btn.classList.remove("correct-answer", "incorrect-answer", "remaining-answer");
+    });
 }
 
 // Evento de escucha para todos los botones de respuesta
@@ -112,19 +118,19 @@ function responder(button){
         const esCorrecta = respuestaSeleccionada === respuestaCorrecta;
         
         // Aplicar clase según si es correcta o no
-        if (esCorrecta) {
-            button.classList.add('correct-answer');
-        } else {
-            button.classList.add('incorrect-answer');
-            
-            // También resaltar la respuesta correcta en verde
-            const botones = document.querySelectorAll("#botones_respuesta button");
-            botones.forEach(btn => {
-                if (btn.innerText === respuestaCorrecta) {
-                    btn.classList.add('correct-answer');
-                }
-            });
+        if (!esCorrecta) {
+            button.classList.add("incorrect-answer");
         }
+            
+        // También resaltar la respuesta correcta en verde y desactiva los botones
+        const botones = document.querySelectorAll("#botones_respuesta button");
+        botones.forEach(btn => {
+            if (btn.innerText === respuestaCorrecta) {
+                btn.classList.add("correct-answer");
+            } else {
+                btn.classList.add("remaining-answer");
+            }
+        });
         
         // Esperar un momento antes de continuar para que el usuario vea los colores
         setTimeout(() => {
@@ -133,27 +139,8 @@ function responder(button){
             respuestas.push(respuestaSeleccionada);
             
             if (contador_pregunta > preguntas_maximas) {
-                // Finaliza el Quiz
-                let puntuacion = 0
-                for (let index = 0; index < preguntas_maximas; index++) {
-                    if (preguntas[index].answer == respuestas[index]) {
-                        puntuacion += 1;
-                    }
-                }
-                // Cambia la vista de la web ( RESULTADOS )
-                menu_inicio.style.display = "none";
-                menu_quiz.style.display = "none";
-                menu_resultados.style.display = "block";
-                puntuacion_text.innerText = "Puntuación: " + puntuacion;
-                const porcentaje = Math.round((puntuacion/preguntas_maximas)*100);
-                resultados_text.innerText = `Respondiste ${puntuacion} de ${preguntas_maximas} correctamente.
-                Porcentaje de acierto: ${porcentaje}%`;
+                mostrar_resultados();
             } else {
-                // Quitar clases de colores antes de la siguiente pregunta
-                const botones = document.querySelectorAll("#botones_respuesta button");
-                botones.forEach(btn => {
-                    btn.classList.remove('correct-answer', 'incorrect-answer');
-                });
                 // Actualiza la interfaz
                 realizar_pregunta();
             }
@@ -165,12 +152,11 @@ function actualizarTemporizador(){
     const minutos = Math.floor(tiempoTotal / 60);
     const segundos = tiempoTotal % 60;
 
-    const tiempoFormateado = `${minutos.toString().padStart(2, '0')}:${segundos.toString().padStart(2, '0')}`;
+    const tiempoFormateado = `${minutos.toString().padStart(2, "0")}:${segundos.toString().padStart(2, "0")}`;
     document.getElementById("temporizador").textContent = tiempoFormateado;
 
     if(tiempoTotal == 0){
-        clearInterval(temporizador);
-        alert("¡Tiempo agotado!");
+        mostrar_resultados();
     }else if(tiempoTotal <= 30){
         document.getElementById("temporizador").style.color = "#f54230";
         tiempoTotal--;
@@ -179,9 +165,35 @@ function actualizarTemporizador(){
     }
 }
 
+// Muestra la ventana de resultados
+function mostrar_resultados(){
+    // Finaliza el temporizador
+    clearInterval(temporizador);
+
+    // Finaliza el Quiz
+    let puntuacion = 0
+    for (let index = 0; index < preguntas_maximas; index++) {
+        if (preguntas[index].answer == respuestas[index]) {
+            puntuacion += 1;
+        }
+    }
+
+    // Cambia la vista de la web ( RESULTADOS )
+    menu_inicio.style.display = "none";
+    menu_quiz.style.display = "none";
+    menu_resultados.style.display = "block";
+    puntuacion_text.innerText = "Puntuación: " + puntuacion;
+    const porcentaje = Math.round((puntuacion/preguntas_maximas)*100);
+    resultados_text.innerText = `Respondiste ${puntuacion} de ${preguntas_maximas} correctamente.
+    Porcentaje de acierto: ${porcentaje}%`;
+}
+
 function salir_quiz(){
     // Resetea el input del menu de inicio
     document.getElementById("nombre").value = "";
+
+    // Finaliza el temporizador
+    clearInterval(temporizador);
 
     // Cambia la vista de la web ( INICIO )
     menu_inicio.style.display = "block";
