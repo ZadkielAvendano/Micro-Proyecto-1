@@ -1,11 +1,23 @@
 import { getRandomQuestions, questions } from "./questions.js";
 
+
+// -- Valores iniciales de la web --
+
+
+const clave_datos = "tabla_puntuaciones";
+let tabla_puntuaciones = [];
+
 const preguntas_maximas = 10;
 let contador_pregunta = 0;
 let preguntas = []
 let respuestas = []
 let tiempoTotal = 300 //5 minutos (300 segundos)
 let temporizador; //Para guardar el tiempo actual.
+let nombre = "";
+let puntuacion = 0;
+
+// Actualiza la tabla de puntuaciones
+load_data()
 
 
 // -- Referencias al HTML --
@@ -24,6 +36,9 @@ const nombre_text = document.getElementById("nombre");
 const temporizador_text = document.getElementById("temporizador");
 const pregunta_text = document.getElementById("pregunta");
 
+// Contenedores
+const detalle_resultados_container = document.getElementById("detalle_resultados_container");
+
 // Botones
 const iniciar_button = document.getElementById("iniciar_button");
 const salir_button = document.getElementById("salir_button");
@@ -41,13 +56,13 @@ const respuesta_4_button = document.getElementById("respuesta_4_button");
 // Detecta el click del boton para iniciar el quiz
 iniciar_button.addEventListener("click", function(event){
     // Verifica si el usuario ingreso su nombre
-    let nombre = nombre_text.value;
+    nombre = nombre_text.value;
     if (nombre == ""){
         alert("Por favor, ingresa un nombre de usuario para comenzar el QUIZ!");
         return;
     }
     console.log("Nombre:", nombre);
-    iniciar_quiz(nombre)
+    iniciar_quiz()
 });
 
 // Detecta el click del boton para salir del quiz
@@ -79,12 +94,13 @@ document.querySelectorAll("#botones_respuesta button").forEach(button => {
 
 
 // Inicia el Quiz
-function iniciar_quiz(nombre){
+function iniciar_quiz(){
     // Obtiene las preguntas
     preguntas = getRandomQuestions(questions, preguntas_maximas)
 
-    // Reinicia el contador de preguntas
+    // Reinicia los valores del QUIZ
     contador_pregunta = 1;
+    puntuacion = 0;
     respuestas = []
     tiempoTotal = 300;
     numero_pregunta.innerText = "Pregunta " + contador_pregunta + "/10";
@@ -107,22 +123,50 @@ function mostrar_resultados(){
     // Finaliza el temporizador
     clearInterval(temporizador);
 
-    // Finaliza el Quiz
-    let puntuacion = 0
-    for (let index = 0; index < preguntas_maximas; index++) {
-        if (preguntas[index].answer == respuestas[index]) {
-            puntuacion += 1;
+    // Calcula la puntuacion del QUIZ y los resultados
+    let detalleHtml = "";
+
+    for (let index = 0; index < preguntas.length; index++) {
+        const preguntaActual = preguntas[index];
+        const respuestaUsuario = respuestas[index];
+
+        let esCorrectaEstaPregunta = false;
+        if (respuestaUsuario !== undefined && preguntaActual.answer === respuestaUsuario) {
+            puntuacion += 1; // 1 punto por respuesta correcta
+            esCorrectaEstaPregunta = true;
         }
+
+        detalleHtml += `<div class="resultado-pregunta">`;
+        detalleHtml += `<p class="pregunta-texto"><strong>Pregunta ${index + 1}:</strong> ${preguntaActual.question}</p>`;
+
+        if (respuestaUsuario !== undefined) {
+            detalleHtml += `<p>Tu respuesta: <span class="respuesta-usuario ${esCorrectaEstaPregunta ? 'correcta' : 'incorrecta'}">${respuestaUsuario}</span></p>`;
+            if (!esCorrectaEstaPregunta) {
+                detalleHtml += `<p class="respuesta-correcta-texto">Respuesta correcta: ${preguntaActual.answer}</p>`;
+            }
+        } else {
+            detalleHtml += `<p>Tu respuesta: <span class="respuesta-usuario incorrecta">No respondida</span></p>`;
+            detalleHtml += `<p class="respuesta-correcta-texto">Respuesta correcta: ${preguntaActual.answer}</p>`;
+        }
+        detalleHtml += `</div>`;
     }
+
+    // Actualiza el contenedor de resultados
+    detalle_resultados_container.innerHTML = detalleHtml;
+
+    // Muestra el porcentaje de acierto y preguntas acertadas
+    puntuacion_text.innerText = "Puntuación: " + puntuacion;
+    const porcentaje = Math.round((puntuacion/preguntas_maximas)*100);
+    resultados_text.innerText = `Respondiste ${puntuacion} de ${preguntas_maximas} correctamente.
+    Porcentaje de acierto: ${porcentaje}%`;
 
     // Cambia la vista de la web ( RESULTADOS )
     menu_inicio.style.display = "none";
     menu_quiz.style.display = "none";
     menu_resultados.style.display = "block";
-    puntuacion_text.innerText = "Puntuación: " + puntuacion;
-    const porcentaje = Math.round((puntuacion/preguntas_maximas)*100);
-    resultados_text.innerText = `Respondiste ${puntuacion} de ${preguntas_maximas} correctamente.
-    Porcentaje de acierto: ${porcentaje}%`;
+
+    // Guardar resultados
+    save_data()
 }
 
 // Vuelve al menu principal y finaliza el QUIZ
@@ -223,4 +267,26 @@ function actualizarTemporizador(){
     }else{
         tiempoTotal--;
     }
+}
+
+
+// -- Local Storage --
+
+function load_data(){
+    // Actualiza la lista de puntuaciones totales
+    let datos_guardados = localStorage.getItem(clave_datos);
+    tabla_puntuaciones = datos_guardados ? JSON.parse(datos_guardados) : [];
+    console.log(`Puntuaciones cargadas: ${JSON.stringify(tabla_puntuaciones, null, 2)}`);
+
+    // Actualiza la tabla de puntuaciones con las 5 mas altas
+
+    // CODIGO...
+}
+
+function save_data(){
+    // Crea el objeto con los datos de la partida ( Nombre - Puntuacion - Fecha )
+    let partida = {"nombre": nombre, "puntaje": puntuacion, "fecha": new Date().toLocaleDateString("es-ES")};
+    tabla_puntuaciones.push(partida);
+    localStorage.setItem(clave_datos, JSON.stringify(tabla_puntuaciones));
+    load_data() // Actualiza la interfaz con la nueva tabla de clasificacion
 }
