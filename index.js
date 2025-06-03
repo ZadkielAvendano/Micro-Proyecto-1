@@ -140,14 +140,15 @@ function mostrar_resultados(){
         detalleHtml += `<p class="pregunta-texto"><strong>Pregunta ${index + 1}:</strong> ${preguntaActual.question}</p>`;
 
         if (respuestaUsuario !== undefined) {
-            detalleHtml += `<p>Tu respuesta: <span class="respuesta-usuario ${esCorrectaEstaPregunta ? 'correcta' : 'incorrecta'}">${respuestaUsuario}</span></p>`;
+            detalleHtml += `<p><strong>Tu respuesta:</strong> <span class="respuesta-usuario ${esCorrectaEstaPregunta ? 'correcta' : 'incorrecta'}">${respuestaUsuario}</span></p>`;
             if (!esCorrectaEstaPregunta) {
-                detalleHtml += `<p class="respuesta-correcta-texto">Respuesta correcta: ${preguntaActual.answer}</p>`;
+                detalleHtml += `<p class="respuesta-correcta-texto"><strong>Respuesta correcta:</strong> ${preguntaActual.answer}</p>`;
             }
         } else {
-            detalleHtml += `<p>Tu respuesta: <span class="respuesta-usuario incorrecta">No respondida</span></p>`;
-            detalleHtml += `<p class="respuesta-correcta-texto">Respuesta correcta: ${preguntaActual.answer}</p>`;
+            detalleHtml += `<p><strong>Tu respuesta:</strong> <span class="respuesta-usuario incorrecta">No respondida</span></p>`;
+            detalleHtml += `<p class="respuesta-correcta-texto"><strong>Respuesta correcta:</strong> ${preguntaActual.answer}</p>`;
         }
+        detalleHtml += `<p class="respuesta-correcta-texto"><strong>Explicacion:</strong> ${preguntaActual.explanation}</p>`
         detalleHtml += `</div>`;
     }
 
